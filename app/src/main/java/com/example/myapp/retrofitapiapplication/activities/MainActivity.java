@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.myapp.retrofitapiapplication.R;
 import com.example.myapp.retrofitapiapplication.helpers.Const;
-import com.example.myapp.retrofitapiapplication.services.api.JsonPlaceholderApi;
+import com.example.myapp.retrofitapiapplication.services.api.APIInterface;
 import com.example.myapp.retrofitapiapplication.services.api.response_models.Post;
 
 import java.util.List;
@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        JsonPlaceholderApi jsonPlaceholderApi = retrofit.create(JsonPlaceholderApi.class);
+        APIInterface apiInterface = retrofit.create(APIInterface.class);
 
-        Call<List<Post>> call = jsonPlaceholderApi.getPosts();
+        Call<List<Post>> call = apiInterface.getPosts();
 
         call.enqueue(new Callback<List<Post>>() {
             @Override
